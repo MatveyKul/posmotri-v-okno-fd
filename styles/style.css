@@ -10,13 +10,13 @@ html {
 
 .page {
   display: flex;
-  inline-size: 1200px;
-  block-size: 100%;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  inline-size: 1200px;
+  block-size: 100%;
 }
 
 h1,
@@ -54,8 +54,8 @@ ol {
 /* Основная часть страницы */
 .content {
   display: flex;
-  align-content: center;
   justify-content: center;
+  align-content: center;
 }
 
 .result {
@@ -63,9 +63,9 @@ ol {
 }
 
 .search-form {
-  display: flex;  
+  display: flex;
+  justify-content: space-between;  
   align-items: flex-start;
-  justify-content: space-between;
 }
 
 .content__details {
@@ -74,9 +74,9 @@ ol {
 
 .content__list-container {
   display: flex;              
-  flex-direction: column;
-  max-height: 298px;  
-  width: 399px; 
+  flex-direction: column;  
+  width: 399px;
+  max-height: 298px; 
   margin-top: 24px;      
   overflow-y: auto;                   
 }
@@ -109,16 +109,16 @@ ol {
 .content__video-card {
   display: flex;          
   flex-direction: row;    /* элементы идут в строку */
-  align-items: flex-start;/* прижимаем к верху контейнера */
-  gap: 6px;               /* расстояние между текстом и картинкой */
+  align-items: flex-start;
+  gap: 6px;               /* расстояние между текстом и картинкой *//* прижимаем к верху контейнера */
 }
 
 .content__video-card-thumbnail {
   width: 200px;
   min-height: 103px;
-  object-position: center;
-  object-fit: cover;
   margin-left: auto;       /* гарантирует прижатие к правому краю */
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
@@ -127,11 +127,11 @@ ol {
 }
 
 .search-form__fieldset-title {
+  color: #FFFFFF;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
-  color: #FFFFFF;
 }
 
 .search-form__fieldset {
@@ -141,13 +141,13 @@ ol {
 }
 
 .title {
+  color: #FFFFFF;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-style: Bold;
   font-size: 75px;
+  font-style: Bold;
   line-height: 94%;
   text-transform: uppercase;
-  color: #FFFFFF;
 }
 
 .content__accent {
@@ -155,44 +155,44 @@ ol {
 }
 
 .content__card-link {
-  text-decoration: none;
   color: #FFFFFF;
+  text-decoration: none;
 }
 
 .content__video-card-title {
+  display: -webkit-box;        /* обязательно для line-clamp */
+  overflow: hidden;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-style: Bold;
   font-size: 30px;
+  font-style: Bold;
   line-height: 100%;
   text-transform: uppercase;
-  display: -webkit-box;        /* обязательно для line-clamp */
+  text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;      /* показываем максимум 3 строки */
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.content__video-card-description {
+.content__video-card-description {           
+  display: -webkit-box;
+  margin-top: 5px;      
+  overflow: hidden;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
-  font-style: regular;
   font-size: 18px;
-  line-height: 16.2px;           
-  display: -webkit-box;        
+  font-style: regular;
+  line-height: 16.2px;
+  text-overflow: ellipsis;        
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;      
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-top: 5px;
+  -webkit-line-clamp: 3;
 }
 
 .visually-hidden {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
   clip-path: inset(50%);
   white-space: nowrap;
 }
@@ -201,14 +201,14 @@ ol {
 .search-form__checkbox-list {
   display: flex;       /* располагаем элементы в строку */
   flex-direction: row; /* строка по умолчанию, можно опустить */
-  gap: 20px;           /* расстояние между чекбоксами */
   align-items: center; /* выравнивание по вертикали */
+  gap: 20px;           /* расстояние между чекбоксами */
 }
 
 .search-form__fieldset {
+  margin: 0;      /* опционально, если нужно */
   border: none;   /* убираем стандартную рамку */
   padding: 0;     /* опционально, чтобы убрать внутренние отступы */
-  margin: 0;      /* опционально, если нужно */
 }
 
 .search-form__label {
@@ -265,12 +265,12 @@ ol {
 
 /* Стилизованный псевдочекбокс */
 .search-form__pseudo-checkbox {
+  position: relative;
+  box-sizing: border-box;
   width: 18px;          /* ширина */
   height: 18px;         /* высота */
   border: 1px solid #fff;
   padding: 1px;         /* отступ между рамкой и закрашенной частью */
-  box-sizing: border-box;
-  position: relative;
 }
 
 /* Внутренний закрашенный квадрат (::after) */
@@ -279,8 +279,8 @@ ol {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #fff;
   opacity: 0;             /* по умолчанию скрыт */
+  background-color: #fff;
 }
 
 /* Когда чекбокс выбран — показываем закрашенный квадрат */
@@ -307,8 +307,8 @@ ol {
   color: #FFFFFF;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 700;
-  font-style: bold;
   font-size: 18px;
+  font-style: bold;
   background: transparent;             /* прозрачный фон по требованию */
   cursor: pointer;
 }
@@ -334,9 +334,9 @@ ol {
 }
 
 .search-form__submit-button {
+  align-self: flex-end; /* прижимаем к низу flex-контейнера */
   width: 194px;
   min-height: 34px;
-  align-self: flex-end; /* прижимаем к низу flex-контейнера */
 }
 
 /* КОНЕЦ КНОПОК */
@@ -348,11 +348,11 @@ ol {
   display: block;
   width: 100%;
   height: 100%;
-  text-decoration: none;    /* базово без подчёркивания */
+  overflow: hidden;
   color: inherit;
+  text-decoration: none;    /* базово без подчёркивания */
   background: transparent;
   cursor: pointer;
-  overflow: hidden;
 }
 
 /* Текущая карточка (JS ставит .content__card-link_current) */
@@ -400,12 +400,12 @@ ol {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  z-index: 2;                    /* поверх содержимого */
   display: flex;              /* чтобы центрировать */
   justify-content: center;
   align-items: center;
-  z-index: 2;                    /* поверх содержимого */
+  width: 100%;
+  height: 100%;
 }
 
 /* КОНЕЦ ПРЕЛОАДЕРОВ */
