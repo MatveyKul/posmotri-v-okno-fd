@@ -11,6 +11,7 @@ html {
 .page {
   display: flex;
   margin: auto;
+  align-items: center;       
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -73,12 +74,12 @@ ol {
 }
 
 .content__list-container {
-  display: flex;              
-  flex-direction: column;  
-  width: 399px;
-  max-height: 298px; 
-  margin-top: 24px;      
-  overflow-y: auto;                   
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  block-size: 298px;
+  overflow-y: auto;
+  gap: 30px;
 }
 
 .result__video-container {
@@ -145,7 +146,6 @@ ol {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 75px;
-  font-style: Bold;
   line-height: 94%;
   text-transform: uppercase;
 }
@@ -154,23 +154,15 @@ ol {
   color: #545050;
 }
 
-.content__card-link {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
 .content__video-card-title {
-  display: -webkit-box;        /* обязательно для line-clamp */
-  overflow: hidden;
+  white-space: nowrap;        /* запрещаем перенос текста */
+  overflow: hidden;           /* обрезаем лишнее */
+  text-overflow: ellipsis;    /* добавляем "..." при переполнении */
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 30px;
-  font-style: Bold;
   line-height: 100%;
   text-transform: uppercase;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;      /* показываем максимум 3 строки */
 }
 
 .content__video-card-description {           
@@ -180,7 +172,6 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  font-style: regular;
   line-height: 16.2px;
   text-overflow: ellipsis;        
   -webkit-box-orient: vertical;
@@ -231,7 +222,7 @@ ol {
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  background-color: #1B1919;
+  background-color: transparent;
 }
 
 
@@ -303,7 +294,7 @@ ol {
 /* КНОПКИ НАВИГАЦИИ */
 
 .button {
-  border: solid 1px #fff;
+  border: solid 1px currentColor;
   color: #FFFFFF;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 700;
@@ -348,7 +339,6 @@ ol {
   display: block;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   color: inherit;
   text-decoration: none;    /* базово без подчёркивания */
   background: transparent;
@@ -393,19 +383,6 @@ ol {
 .result__video-container,
 .content__list-container {
   position: relative; /* точка отсчёта для прелоадера */
-}
-
-/* Общий стиль прелоадеров */
-.preloader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;                    /* поверх содержимого */
-  display: flex;              /* чтобы центрировать */
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
 }
 
 /* КОНЕЦ ПРЕЛОАДЕРОВ */
